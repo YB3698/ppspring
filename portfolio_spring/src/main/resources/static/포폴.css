@@ -1,0 +1,402 @@
+/* html, body 기본 세팅 */
+html {
+  scroll-padding-top: 70px;
+}
+body {
+  margin: 0;
+  /* padding: 0; */
+  font-family: sans-serif;
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+  background: #f0f0f0;
+  min-height: 400vh; /* 페이지 총 길이: 4배 화면 높이 */
+  scroll-behavior: smooth; /* 부드러운 스크롤 적용 */
+}
+/* 상단 네비게이션 바 스타일 */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(48, 47, 47);
+  border-bottom: 1px solid #ccc;
+  z-index: 9999;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 1rem 0;
+  list-style: none;
+}
+
+.navbar li a {
+  text-decoration: none; /* 텍스트 줄 안그어지게하기 */
+  color: yellow;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.navbar li a:hover {
+  color: #007bff; /* 파란색 hover 효과 */
+}
+
+/* 첫 번째 페이지 고정 스타일 */
+#page1 {
+  position: fixed; /* 스크롤해도 화면에 고정 */
+  top: 0;
+  left: 0; /* 화면 왼쪽 위 붙이기 */
+  width: 100vw;
+  height: 100vh; /* 화면 전체 크기 */
+  background-image: url(./img/노란배경.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: black;
+  display: flex; /* 내용 세로 정렬 위해 flex */
+  flex-direction: column;
+  justify-content: center; /* 세로 가운데 정렬 */
+  align-items: center; /* 가로 가운데 정렬 */
+  font-size: 1.5rem;
+  z-index: 100; /* 다른 페이지보다 위에 위치 */
+}
+.info {
+  position: absolute;
+  font-size: 1rem;
+  top: 31rem;
+  white-space: nowrap;
+  color: #222222e7;
+}
+/* 배경에 희미하게 보이는 큰 텍스트 */
+.background-title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 100px;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.1); /* 희미한 검정색 글자 */
+  pointer-events: none; /* 클릭 이벤트 무시 */
+  white-space: nowrap; /* 줄바꿈 방지 */
+}
+.intro-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  position: relative;
+}
+/* 내 사진 이미지 위치 조정 */
+.intro-img {
+  position: relative;
+  border: 2px solid black;
+  background-color: rgb(253, 250, 250);
+  border-radius: 50%;
+  top: 3%;
+  align-items: center;
+  margin-top: 55px;
+  width: 250px;
+  height: 250px;
+  margin: 1.5rem 0;
+  background-image: url("./img/포폴사진.jpg");
+  background-size: 250px auto;
+  background-repeat: no-repeat;
+  background-position: 70% 50%;
+}
+
+.main-text {
+  font-size: 2rem;
+  font-weight: bold;
+  position: relative;
+  top: 10%;
+}
+.sub-text {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+#scroll-down-arrow {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: black;
+  animation: floatArrow 1.5s infinite ease-in-out;
+  z-index: 200;
+  pointer-events: none;
+}
+
+@keyframes floatArrow {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* 두 번째 페이지 스타일 */
+#page2 {
+  background: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  min-height: 100vh; /* 화면 높이만큼 */
+  position: relative; /* 기본 위치 */
+  z-index: 1; /* 첫 페이지보다 뒤 */
+}
+/* 그룹 제목 */
+#page2 h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: yellow;
+  border-bottom: 2px solid yellow;
+  padding-bottom: 0.5rem;
+}
+.skills-group {
+  margin-bottom: 2rem;
+}
+.skills-group h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffcc00;
+  text-align: center;
+}
+.skills-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+/* 박스 디자인 */
+.skill {
+  background-color: #1f1f1f;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 0.8rem 1.5rem;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-align: center;
+  min-width: 100px;
+}
+.skill:hover {
+  transform: translateY(-5px);
+  background-color: #333;
+  cursor: pointer;
+}
+
+/* 세번째 페이지*/
+#interview {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  background: rgb(10, 10, 10);
+}
+#interview h2 {
+  color: yellow;
+  font-size: 2.5rem;
+  border-bottom: 2px solid yellow;
+}
+.interview-group {
+  background-color: #1f1f1f;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 0.8rem 1.5rem;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 60%;
+  min-width: 600px;
+}
+.question {
+  font-size: 1.5rem;
+  color: yellow;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.answer {
+  font-size: 1rem;
+  /* line-height: 1.5; */
+}
+#contact {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  background: rgb(10, 10, 10);
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* 네번째 페이지 */
+#project {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  position: relative;
+}
+#project h2 {
+  display: inline;
+  color: yellow;
+  font-size: 2.5rem;
+  border-bottom: 2px solid yellow;
+  width: auto;
+}
+.project-title {
+  top: 0;
+  background-color: black;
+  padding: 1rem;
+  z-index: 10;
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0;
+}
+.project-title a {
+  color: white;
+  text-decoration: none;
+}
+
+.project-title a:hover {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+.project-title a:visited {
+  color: white;
+}
+.project-container {
+  display: flex;
+  flex-wrap: wrap; /* 줄바꿈 허용 */
+  justify-content: center;
+  gap: 0 2rem;
+  margin: 0 auto;
+}
+.project-block {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.project-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  box-sizing: border-box;
+  margin: 5rem;
+  width: 100%;
+  margin-top: 1rem;
+  max-height: 600px;
+  box-sizing: border-box;
+}
+.project-scroll-area::-webkit-scrollbar {
+  width: 20px; /* 스크롤바 너비 */
+}
+
+.project-scroll-area::-webkit-scrollbar-thumb {
+  background-color: #ffcc00; /* 스크롤바 색상 */
+  border-radius: 5px;
+  border: 2px solid #fcfafa; /* 배경과 구분감 */
+}
+
+.project-scroll-area::-webkit-scrollbar-track {
+  background-color: #acc0af; /* 스크롤 트랙(배경) */
+  border-radius: 5px;
+}
+.project-item {
+  margin-bottom: 3rem;
+  background-color: #222;
+  padding: 1rem;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+.project-item img {
+  width: 100%;
+  max-width: 700px;
+  display: block;
+  margin: 0 auto;
+}
+.project-item .description {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+/* 마지막 */
+#end {
+  position: relative;
+  top: 0;
+  left: 0; /* 화면 왼쪽 위 붙이기 */
+  width: 100vw;
+  height: 100vh; /* 화면 전체 크기 */
+  background-image: url(./img/노란배경.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: black;
+  display: flex; /* 내용 세로 정렬 위해 flex */
+  flex-direction: column;
+  justify-content: center; /* 세로 가운데 정렬 */
+  align-items: center; /* 가로 가운데 정렬 */
+  font-size: 1.5rem;
+  z-index: 100; /* 다른 페이지보다 위에 위치 */
+}
+.main-text-end {
+  position: relative;
+  top: -30px;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.sub-text-end {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+.content-end {
+  opacity: 0;
+  /* transform: translateY(50px); */
+  margin-top: 50px;
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.content-end.show {
+  /* transform: translateY(0); */
+  opacity: 1;
+  margin-top: 0;
+  pointer-events: auto;
+  z-index: 200;
+}
+.link {
+  position: relative;
+  top: 50%;
+  color: black;
+}
+.link:hover {
+  background-color: rgb(140, 210, 220);
+  border-radius: 5px;
+}
